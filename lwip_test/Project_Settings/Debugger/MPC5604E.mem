@@ -1,0 +1,127 @@
+// Memory config file for MPC5604E
+// VERSION 1.1
+
+reservedchar 0x21	// display '!' for invalid reads
+
+// On-Chip Flash Memory (Code Flash)
+//range		0x00000000 0x0007ffff 4 ReadWrite
+reserved	0x00080000 0x001fffff
+
+//Code Flash Array Shadow Sector
+//range		0x00200000 0x00203FFF 4 ReadWrite
+reserved	0x00204000 0x003FFFFF
+
+//Code Flash Array Test Sector
+//range		0x00400000 0x00403FFF 4 ReadWrite
+reserved	0x00404000 0x007FFFFF
+
+//Data Flash Array
+//range	0x00800000 0x0080FFFF 4 ReadWrite
+
+// compact with Shadow Sector for Data Flash
+reserved	0x00810000 0x00BFFFFF
+
+//On-Chip Flash Memory (Shadow Sector for Data Flash)
+//reserved	0x00A00000 0x00BFFFFF
+
+//On-Chip Flash Memory (Test Sector for Data Flash)
+//Data Flash Array Test Sector
+reserved    0x00C00000 0x00C01FFF
+//range		0x00C02000 0x00C03FFF 4 ReadWrite
+
+// compact with Emulation Mapping
+reserved	0x00C04000 0x3FFFFFFF
+
+//Emulation Mapping
+//reserved	0x01000000 0x3FFFFFFF
+
+//SRAM
+
+// ECC SRAM 96KB
+//range		0x40000000 0x40017FFF 4 ReadWrite
+reserved	0x40018000 0x4FFFFFFF
+
+// Video Output Buffer SRAM
+range 0x50000000 0x50001FFF 4 ReadWrite
+
+// Mirrored Video Output Buffer (from 0x50000000)
+// range 0x50002000 0x50003FFF 4 ReadWrite
+
+reserved 0x50004000 0x7FFFFFFF
+
+// Peripherals
+
+reserved	0xC3F80000 0xC3F87FFF
+
+// Code Flash 0 Configuration (CFLASH0), Data Flash 0 Configuration (DFLASH0), System Integration Unit Lite (SIUL), WakeUp Unit (WKUP)
+//range	0xC3F88000 0xC3F97FFF 4 ReadWrite
+
+reserved	0xC3F98000 0xC3FD7FFF
+
+//System Status and Configuration Module (SSCM), Mode Entry module (ME), Clock Generation Module (CGM, XOSC, IRC, FMPLL_0, FMPLL_1, CMU0, CMU1), Reset Generation Module (RGM), Power Control Unit (PCU)
+//range		0xC3FD8000 0xC3FEBFFF 4 ReadWrite
+
+reserved	0xC3FEC000	0xC3FEFFFF
+
+//Periodic Interrupt Timer (PIT)
+//range		0xC3FF0000 0xC3FF3FFF 4 ReadWrite
+
+// compacted area 0xC3FF_4000 - 0xC3FF_FFFF - 0xFFDF_FFFF
+reserved	0xC3FF4000 0xFFDFFFFF
+
+// AIPS(0) - Off Platform Peripherals
+//Analog to Digital Converter 0 (ADC0), Analog to Digital Converter 1 (ADC1)
+//range		0xFFE00000 0xFFE03FFF 4 ReadWrite
+reserved	0xFFE04000 0xFFE17FFF
+
+//eTimer 0
+//range		0xFFE18000 0xFFE1BFFF 4 ReadWrite
+reserved	0xFFE1C000 0xFFE2FFFF
+
+// Inter IC Bus Interface Controller 0 and 1 (I2C0, I2C1)
+//range		0xFFE30000 0xFFE37FFF 4 ReadWrite
+reserved	0xFFE38000 0xFFE3FFFF
+
+//LIN FLEX 0, LIN FLEX 1
+//range		0xFFE40000 0xFFE47FFF 4 ReadWrite
+reserved	0xFFE48000 0xFFE67FFF
+
+//Cyclic Redundancy Check (CRC), Fault Collection Unit (FCU)
+//range		0xFFE68000 0xFFE6FFFF 4 ReadWrite
+reserved	0xFFE70000 0xFFE73FFF
+
+// Precision Time Stamps (PTP), Real-Time Counter (CE_RTC)
+//range		0xFFE74000 0xFFE7BFFF 4 ReadWrite
+
+reserved	0xFFE7C000 0xFFE7FFFF
+
+// AIPS(0) - Off Platform Peripherals (mirrored from AIPS(1) range 0xC3F80000 - 0xC3FFFFFF)
+//range		0xFFE80000 0xFFEFFFFF 4 Readwrite
+
+//AIPS(0) - On Platform Peripherals
+reserved	0xFFF00000 0xFFF37FFF
+
+//Software Watchdog (SWT0), System Timer Module (STM0), MCM, DMA2x, INTC, FEC
+//range		0xFFF38000 0xFFF4FFFF 4 ReadWrite
+
+// compacted with 0xFFF8_0000 - 0xFFF8_FFFF
+reserved	0xFFF50000 0xFFF8FFFF
+
+//DSPI 0, DSPI 1, DSPI 2
+//range		0xFFF90000 0xFFF9FFFF 4 ReadWrite
+reserved	0xFFFA0000 0xFFFBFFFF
+
+//FlexCAN 0 (CAN0)
+//range		0xFFFC0000 0xFFFC3FFF 4 ReadWrite
+reserved	0xFFFC4000 0xFFFD7FFF
+
+//SAI 0, DMA Multiplexer (DMA_MUX)
+//range		0xFFFD8000 0xFFFDFFFF 4 ReadWrite
+
+reserved	0xFFFE0000 0xFFFEFFFF
+
+// SAI 1, 2, Video Data Path/Parallel Digital Interface (PDI), Boot Assist Module (BAM)
+//range		0xFFFF0000 0xFFFFBFFF 4 ReadWrite
+
+//Boot Assist Module (BAM)
+range		0xFFFFC000 0xFFFFFFFF	4 Read
